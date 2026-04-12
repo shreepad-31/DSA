@@ -62,6 +62,8 @@ int main(){
 
     v.pop_back(); // {2}
 
+    sort(v.begin(), v.end()); // for sorting
+
     //v1 = {2, 3}, v3 = {4, 5}
     v1.swap(v3); // v3 = {2, 3}, v1 = {4, 5}
 
