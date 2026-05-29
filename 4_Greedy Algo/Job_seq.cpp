@@ -5,8 +5,14 @@ using namespace std;
 // Each job takes 1d to be done and can't be performed after deadline day.
 // We have to maximise the profit.
 
-int job_profits(){
+class job{
+    public:
+        int srno;
+        int deadline;
+        int points;
+};
 
+int job_profits(){
 
 
 

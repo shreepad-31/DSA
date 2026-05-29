@@ -5,20 +5,23 @@ using namespace std;
 // Max size of array gobally is 10 ^ 7
 
 // Largest and Second Largest
-pair<int, int> largest_slargest(int arr[], int n){
-    int largest = -1, slargest = -1;
-    for(int i = 0; i < n; i++){
-        if(arr[i] > largest){
-            slargest = largest;
-            largest = arr[i];
+pair<int, int> largest_slargest(int a[], int n){
+    int largest = -1, s_largest = -1;
+    for(int i = 1; i < n; i++){
+        if(a[i] > largest){
+            s_largest = largest;
+            largest = a[i];
         }
-        else if(arr[i] < largest && arr[i] > slargest){
-            slargest = arr[i];
+        else if(a[i] > s_largest){
+            s_largest = a[i];
         }
     }
-    return {slargest, largest};
+    return {largest, s_largest};
 }
+
+
 // Similarly you can do it for Smallest and Second Smallest number
+
 
 // Check if sorted array
 bool check(vector<int>& a){
