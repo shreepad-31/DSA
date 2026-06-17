@@ -6,8 +6,6 @@ int max_sum(vector <int> arr, int k){
     while(right < n){
         left++; right++;
     }
-    
-
     return ;
 }
 
