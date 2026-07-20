@@ -29,14 +29,15 @@ int jumpgame2(vector<int> jump_arr){
     while(right < n - 1){
         farthest = 0;
         for(left; left <= right; left++) farthest = max(farthest, left + jump_arr[left]);
-        left = right + 1;
+        left = right + 1; jumps++;
         right = farthest;
+
     }
     return jumps;
 } // Time Complexity is N
 
 int main(){
-    vector<int> sample = {2, 3, 1, 4, 1, 1, 1, 2};
+    vector<int> sample = {2, 3, 1, 1, 4};
     int result = jumpgame2(sample);
 
     cout << "Least Number of Jumps Required to Reach End is: " << result;

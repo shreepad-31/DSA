@@ -21,5 +21,7 @@ bool camparision(job a, job b){
 
 int main(){
     
+    
+
     return 0;
 }
