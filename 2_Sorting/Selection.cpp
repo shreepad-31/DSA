@@ -1,35 +1,34 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-void selectionSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        int minIdx = i;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[minIdx])
-                minIdx = j;
+// TC : O(N^2)
+
+vector<int> selection_sort(vector<int> arr,int n){
+
+    int min_ind, temp;
+
+    for(int i = 0; i < (n - 1); i++){
+        min_ind = i;
+        for(int j = i; j < n; j++){
+            if(arr[min_ind] > arr[j]){
+                min_ind = j;
+            }
         }
-        if (minIdx != i)
-            swap(arr[i], arr[minIdx]);
+        temp = arr[i];
+        arr[i] = arr[min_ind];
+        arr[min_ind] = temp;
     }
+
+    return arr;
 }
 
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
+int main(){
+    vector<int> sample = {64, 25, 12, 22, 11};
+    int n = sample.size();
 
-int main() {
-    int arr[] = {64, 25, 12, 22, 11};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    vector<int> result = (selection_sort(sample, n));
 
-    cout << "Before sorting: ";
-    printArray(arr, n);
-
-    selectionSort(arr, n);
-
-    cout << "After sorting:  ";
-    printArray(arr, n);
-
+    for(int i = 0; i < n; i++) cout << result[i] << " ";
+    
     return 0;
 }

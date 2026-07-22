@@ -9,6 +9,13 @@ int fibo(int n){
     }
 }
 
+// Factorial Function
+
+int facto(int num){
+    if(num <= 1) return 1;
+    return num * facto(num - 1);
+}
+
 int main(){
     int num, result;
     cin >> num;
@@ -18,15 +25,3 @@ int main(){
     }
     return 0;
 }
-
-
-// Factorial Function
-
-int facto(int num){
-    if(num <= 1) return 1;
-    return num * facto(num - 1);
-}
-
-// int n;
-// cin >> n;
-// cout << facto(n);

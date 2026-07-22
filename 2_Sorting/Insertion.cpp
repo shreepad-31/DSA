@@ -1,35 +1,28 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-void insertionSort(int arr[], int n) {
-    for (int i = 1; i < n; i++) {
-        int key = arr[i];
-        int j = i - 1;
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
+// TC : 
+
+vector<int> insertion_sort(vector<int> arr, int n){
+
+    for(int i = 0; i < n - 1; i++){
+        int j = i;
+        while(arr[j + 1] < arr[j] && j > 0){
+            if(arr[j + 1] < arr[j]) swap(arr[j + 1], arr[j]);
             j--;
         }
-        arr[j + 1] = key;
     }
+
+    return arr;
 }
 
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
+int main(){
+    vector<int> sample = {64, 25, 12, 22, 11};
+    int n = sample.size();
 
-int main() {
-    int arr[] = {12, 11, 13, 5, 6};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    vector<int> result = (insertion_sort(sample, n));
 
-    cout << "Before sorting: ";
-    printArray(arr, n);
-
-    insertionSort(arr, n);
-
-    cout << "After sorting:  ";
-    printArray(arr, n);
-
+    for(int i = 0; i < n; i++) cout << result[i] << " ";
+    
     return 0;
 }

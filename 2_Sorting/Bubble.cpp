@@ -1,37 +1,39 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
+// Adjecent Swaps
+
+// Time Complexity:
+// Best O(N)
+// Worst O(N^2)
+// Average O(N^2)
+
+// Space Complxity O(N)
+
+vector<int> bubble_sort(vector<int> arr, int n){
+
+    for(int i = 0; i < n - 1; i++){
         bool swapped = false;
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
+
+        for(int j = 0; j < n - 1 - i; j++) {
+            if(arr[j] > arr[j + 1]){
                 swap(arr[j], arr[j + 1]);
                 swapped = true;
             }
         }
-        if (!swapped)
-            break;
+        if(!swapped) break;
     }
+
+    return arr;
 }
 
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << endl;
-}
+int main(){
+    vector<int> sample = {64, 25, 12, 22, 11};
+    int n = sample.size();
 
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    vector<int> result = bubble_sort(sample, n);
 
-    cout << "Before sorting: ";
-    printArray(arr, n);
-
-    bubbleSort(arr, n);
-
-    cout << "After sorting:  ";
-    printArray(arr, n);
-
+    for(int i = 0; i < n; i++) cout << result[i] << " ";
+    
     return 0;
 }
