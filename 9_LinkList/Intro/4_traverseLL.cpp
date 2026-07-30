@@ -51,6 +51,16 @@ void sizeLL(Node* head){
     }
     cout << count << endl;
 }
+// Check if given element present or not
+
+bool checkElement(Node* head, int num){
+    Node* temp = head;
+    while(temp){
+        if(temp->data == num) return true;
+        temp = temp->next;
+    }
+    return false;
+}
 
 int main(){
     vector<int> arr = {2, 3, 5, 6, 3, 4};
@@ -60,6 +70,9 @@ int main(){
     traverseLL(head);
 
     sizeLL(head);
+
+    bool result = checkElement(head, 4);
+    result == true ? cout << "Present\n" : cout << "Not Present\n";
     
     return 0;
 }
