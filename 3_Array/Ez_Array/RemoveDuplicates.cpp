@@ -12,7 +12,6 @@ int returnDuplicates(){
 }
 
 int main(){
-    
 
     return 0;
 }
