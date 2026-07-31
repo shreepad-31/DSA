@@ -8,7 +8,8 @@ using namespace std;
 int returnDuplicates(){
     int k = 1;
 
-    return k;}
+    return k;
+}
 
 int main(){
     
