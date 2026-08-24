@@ -16,7 +16,7 @@ string deci2binary(int n){
 
 int binary2deci(string binary){
     int n = binary.size(), deci = 0;
-    for(int i = 0; i < n; i++) if(binary[i] == '1') deci += 1 << n - i - 1;
+    for(int i = 0; i < n; i++) if(binary[i] == '1') deci += 1 << (n - i - 1);
     return deci;
 }
 

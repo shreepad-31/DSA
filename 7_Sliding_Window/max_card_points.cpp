@@ -21,4 +21,4 @@ int main(){
     cout << "Maximum card points is: " << result;
 
     return 0;
-}
+} 
