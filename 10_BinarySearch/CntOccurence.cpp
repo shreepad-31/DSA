@@ -15,7 +15,7 @@ int countOccurence(vector<int> nums, int target){
     }
     if(first == -1) return 0;
 
-    low = 0, high = n - 1;
+    low = 0, high = n - 1 ;
     while(low <= high){
         mid = (low + high) / 2;
         
