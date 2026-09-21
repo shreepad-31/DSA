@@ -55,46 +55,75 @@ void deleteTail(Node*& head){
     else if(head->next == nullptr) {delete head; head = nullptr; return;}
 
     Node* temp = head;
-    while(temp->next->next) temp = temp->next;
+    while(temp->next) temp = temp->next;
 
-    delete temp->next;
-    temp->next = nullptr;
+    temp->back->next = nullptr;
+    delete temp;
 
     return;
 }
 
+// Given k <= No of Nodes
 void deleteKth(Node*& head, int k){
     if(head == NULL || k <= 0) return;
+    else if(k == 1) {deleteHead(head); return;}
 
     Node* temp = head;
-    if(k == 1) {head = head->next; delete temp; return;}
-    while(k != 2){
-        if(temp->next == nullptr) return;
-        temp = temp->next;
-        k--;
-    }
-    Node* toDelete = temp->next;
-    temp->next = toDelete->next;
-    delete toDelete;
-    return;
+    for(; k > 1; k--) temp = temp->next;
+
+    if(temp->next) temp->next->back = temp->back;
+    temp->back->next = temp->next;
+    
+    delete temp;
 }
 
-void deleteValue(Node*& head, int target){
-    if(head == NULL) return;
-
-    Node* temp = head; Node* prev = nullptr;
-    if(head->data == target) {head = head->next; delete temp; return;}
+// Given Node is not the head
+void deleteNode(Node* target){
+    if(target->next) target->next->back = target->back;
+    target->back->next = target->next;
     
-    while(temp->data != target && temp->next != nullptr){
-        prev = temp;
-        temp = temp->next;
-    }
-    if(temp->data == target) {prev->next = temp->next; delete temp;}
+    delete target;
 }
 
 int main(){
 
+    vector<int> arr = {10, 20, 30, 40, 50};
 
+    Node obj(0);
+    Node* head = obj.Array2DLL(arr);
+
+    cout << "Original DLL: ";
+    obj.TraverseDLL(head);
+    cout << endl;
+
+    // Delete head
+    deleteHead(head);
+
+    cout << "After deleting head: ";
+    obj.TraverseDLL(head);
+    cout << endl;
+
+    // Delete tail
+    deleteTail(head);
+
+    cout << "After deleting tail: ";
+    obj.TraverseDLL(head);
+    cout << endl;
+
+    // Delete kth node
+    deleteKth(head, 2);
+
+    cout << "After deleting 2nd node: ";
+    obj.TraverseDLL(head);
+    cout << endl;
+
+    // Delete a given node (not head)
+    Node* target = head->next;
+    deleteNode(target);
+
+    cout << "After deleting given node: ";
+    obj.TraverseDLL(head);
+    cout << endl;
 
     return 0;
 }
